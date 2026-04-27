@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titulo de la pagina que aparecera en la pestana del navegador -->
+    <title>Curriculum Vitae - Hoja de Vida</title>
+    <style>
+        /* Definicion de variables CSS para colores principales */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-body: #f4f7f6;
+        }
+
+        /* Reseteo general de margenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilo base del body */
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Contenedor principal de la hoja de vida */
+        .cv-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--text-light);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* ----- COLUMNA IZQUIERDA (Datos Personales y Perfil) ----- */
+        .left-column {
+            width: 35%;
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Estilos para la fotografia del perfil personal */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #ecf0f1;
+            margin: 0 auto 15px;
+            display: block;
+            border: 5px solid rgba(255,255,255,0.2);
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .job-title {
+            font-size: 16px;
+            color: #bdc3c7;
+            font-weight: 300;
+        }
+
+        .section-title-left {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            margin-top: 35px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            font-size: 14.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info li strong {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        /* ----- COLUMNA DERECHA (Experiencia, Estudios, Referencias) ----- */
+        .right-column {
+            width: 65%;
+            padding: 50px 45px;
+            background: var(--text-light);
+        }
+
+        /* Titulos de secciones en la columna derecha */
+        .section-title-right {
+            font-size: 24px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            margin-top: 40px;
+            display: inline-block;
+        }
+
+        .section-title-right:first-child {
+            margin-top: 0;
+        }
+
+        /* Elementos de lista para experiencia, estudios y capacitaciones */
+        .list-wrapper {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #ecf0f1;
+        }
+
+        .list-wrapper::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title-right {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 19px;
+        }
+
+        .job-date {
+            font-size: 14px;
+            color: var(--secondary);
+            font-weight: 600;
+            background: #ffeaa7;
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: #d35400;
+        }
+
+        .company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 12px;
+        }
+
+        .job-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* Estilos de tabla para las Referencias Personales */
+        .references-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .references-table th {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 10px;
+            text-align: left;
+        }
+
+        .references-table td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            color: #555;
+        }
+
+        .references-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Estilo para enlace del repositorio Git */
+        .git-link-container {
+            margin-top: 40px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .git-link-container a {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Diseno Responsivo para moviles */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .left-column, .right-column {
+                width: 100%;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+            .job-date {
+                margin-top: 5px;
+                display: inline-block;
+            }
+            .references-table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor general del CV -->
+    <div class="cv-container">
+        <!-- Columna Izquierda: Datos personales y fotografia -->
+        <div class="left-column">
+            <div class="profile-section">
+                <!-- Foto de perfil solicitada: imagenCV.jpeg -->
+                <img src="imagenCV.jpeg" alt="Foto de perfil" class="profile-pic">
+                
+                <!-- Nombre y cargo -->
+                <h1 class="name">Jhon Henry<br>Flores Macias </h1>
+                <h2 class="job-title">Desarrollador Web Frontend</h2>
+            </div>
+
+            <!-- Datos personales adicionales -->
+            <h3 class="section-title-left">Datos Personales</h3>
+            <ul class="contact-info">
+                <li><strong>Tel:</strong> +593 99 123 4567</li>
+                <li><strong>Email:</strong> welftilin123@gmail.com</li>
+                <li><strong>Ubicacion:</strong> Chantilin, Ecuador</li>
+                <li><strong>Nacimiento:</strong> 15 / 07 / 2004</li>
+            </ul>
+        </div>
+
+        <!-- Columna Derecha: Estudios, Experiencia, Capacitaciones y Referencias -->
+        <div class="right-column">
+            
+            <!-- Seccion: Estudios Realizados -->
+            <h3 class="section-title-right">Estudios Realizados</h3>
+            <div class="list-wrapper">
+                <div class="job-header">
+                    <h4 class="job-title-right">Grado en Ingenieria Informatica</h4>
+                    <span class="job-date">2023 - 2040</span>
+                </div>
+                <div class="company">Universidad Laica Eloy Alfaro de Manabi</div>
+                <p class="job-desc">Especializacion en Ingenieria de Software. Graduado con honores.</p>
+            </div>
+            
+            <div class="list-wrapper">
+                <div class="job-header">
+                    <h4 class="job-title-right">Bachiller en Ciencias</h4>
+                    <span class="job-date">2016 - 2022</span>
+                </div>
+                <div class="company">Colegio Nacional 5 de Junio</div>
+                <p class="job-desc">Educacion secundaria completada.</p>
+            </div>
+
+            <!-- Seccion: Experiencia Laboral -->
+            <h3 class="section-title-right">Experiencia Laboral</h3>
+            <div class="list-wrapper">
+                <div class="job-header">
+                    <h4 class="job-title-right">SUPERMERCADOS TUTI</h4>
+                    <span class="job-date">2021 - Presente</span>
+                </div>
+                <div class="company">TUTI</div>
+                <p class="job-desc">
+                    Despachador de perchas del Tuti.
+                </p>
+            </div>
+
+            <!-- Seccion: Capacitaciones -->
+            <h3 class="section-title-right">Capacitaciones</h3>
+            <div class="list-wrapper">
+                <div class="job-header">
+                    <h4 class="job-title-right">Curso de SpeedRuns de Resident Evil Saga</h4>
+                    <span class="job-date">2023</span>
+                </div>
+                <div class="company">Plataforma Tik tok</div>
+                <p class="job-desc">Capacitacion de SpeedRuns de Resident Evil Saga para ser todo un pro , actualmente en practica para el siguiente platino de la saga.</p>
+            </div>
+            
+            <div class="list-wrapper">
+                <div class="job-header">
+                    <h4 class="job-title-right">El Fan mas Viejo de Bananirou (elpapu)</h4>
+                    <span class="job-date">2022</span>
+                </div>
+                <div class="company">plataforma Kick</div>
+                <p class="job-desc">Reconocido por ser el fan mas viejo del estreamer argentino conocido como Bananirou.</p>
+            </div>
+
+            <!-- Seccion: Referencias Personales con formato de Tabla -->
+            <h3 class="section-title-right">Referencias Personales</h3>
+            <table class="references-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cargo/Profesion</th>
+                        <th>Telefono</th>
+                        <th>Correo electronico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Perez</td>
+                        <td>Gerente de Proyecto</td>
+                        <td>+34 601 234 567</td>
+                        <td>jperez@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Gomez</td>
+                        <td>Disenadora UI/UX</td>
+                        <td>+34 602 345 678</td>
+                        <td>maria.g@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos Ramirez</td>
+                        <td>Ingeniero de Software</td>
+                        <td>+34 603 456 789</td>
+                        <td>carlos.r@correo.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Documentacion: Enlace a GIT sugerido en la tarea -->
+            <div class="git-link-container">
+                <p><strong>Repositorio Git:</strong> <a href="https://github.com/jhonfx195-create/Aplicaciones-cliente--web.git" target="_blank">Enlace al codigo fuente en GitHub</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
