@@ -1,0 +1,40 @@
+/* Estilos generales del cuerpo */
+body {
+    color: #00F; 
+    background-color: #CFC; 
+    font-family: Georgia, Cambria, serif; 
+    font-size: 16px;
+    line-height: 1.5; /* Añadido para que el texto no esté tan pegado */
+    padding: 20px;   /* Añadido para que el contenido no pegue a los bordes */
+}
+
+/* Títulos */
+h1 {
+    color: #F00; 
+    font-family: Verdana, Calibri, sans-serif; 
+    font-size: 32px;
+}
+
+h2 {
+    color: #A00; 
+    font-family: Verdana, Calibri, sans-serif; 
+    font-size: 24px;
+    border-bottom: 1px solid #A00; /* Un detalle visual para separar secciones */
+}
+
+/* Etiquetas específicas */
+span {
+    color: #060;
+    font-weight: bold; /* Para que resalten más los campos del libro */
+}
+
+strong {
+    font-size: 20px;
+}
+
+em {
+    color: #FFF; 
+    background-color: #000;
+    padding: 2px 5px; /* Un poco de aire para que el fondo negro no sofoque las letras */
+    font-style: normal;
+}
