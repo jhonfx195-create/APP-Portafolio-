@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Propuesto 2.1 - Números</title>
+</head>
+<body>
+    <h1>Ejercicio Propuesto 2.1 - Números</h1>
+    <script type="text/javascript">
+        var maxValue = Number.MAX_VALUE;
+        var minValue = Number.MIN_VALUE;
+        alert("El valor máximo de un número es: " + maxValue);
+        alert("El valor mínimo de un número es: " + minValue);
+        alert("Valor especial: " + (maxValue * 2));
+    </script>
+    <script type="text/javascript">
+        var operando_1 = prompt("Introduce el primer valor lógico (true o false):");
+        var operando_2 = prompt("Introduce el segundo valor lógico (true o false):");
+        var valor1 = operando_1 && operando_1 === "true";
+        var valor2 = operando_2 && operando_2 === "true";
+        var resultado_logico = valor1 && valor2;
+        alert("Resultado: " + resultado_logico);
+    </script>
+    <script type="text/javascript">
+        var countdown = Number(prompt("Introduce un número para iniciar la cuenta atrás:"));
+        while (countdown > 0) {
+            alert(countdown + "...");
+            countdown--;
+        }
+        alert("¡Cuenta atrás finalizada!");
+    </script>
+</body>
+</html>
