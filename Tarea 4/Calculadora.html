@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Iteraciones</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        .container { max-width: 400px; background: #f4f4f4; padding: 20px; border-radius: 8px; }
+        input { margin-bottom: 10px; width: 100%; padding: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        #resultado { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Operaciones en Bucle</h2>
+    <label>Número 1:</label>
+    <input type="number" id="num1" placeholder="Ej: 10">
+    
+    <label>Número 2:</label>
+    <input type="number" id="num2" placeholder="Ej: 5">
+    
+    <button onclick="procesarOperaciones()">Calcular Iteraciones</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function procesarOperaciones() {
+        // Obtenemos los valores de los inputs
+        let n1 = parseFloat(document.getElementById('num1').value);
+        let n2 = parseFloat(document.getElementById('num2').value);
+        let contenedor = document.getElementById('resultado');
+        
+        // Limpiamos resultados previos
+        contenedor.innerHTML = "";
+
+        if (isNaN(n1) || isNaN(n2)) {
+            contenedor.innerHTML = "Por favor, ingresa ambos números.";
+            return;
+        }
+
+        // 1. Usamos un bucle FOR para las 5 iteraciones
+        for (let i = 1; i <= 5; i++) {
+            let operacion = "";
+            let calculo = 0;
+
+            // 2. Usamos SWITCH para determinar qué hacer en cada iteración
+            switch (i) {
+                case 1:
+                    calculo = n1 + n2;
+                    operacion = "Suma";
+                    break;
+                case 2:
+                    calculo = n1 - n2;
+                    operacion = "Resta";
+                    break;
+                case 3:
+                    calculo = n1 * n2;
+                    operacion = "Multiplicación";
+                    break;
+                case 4:
+                    // Validación simple para división por cero
+                    calculo = n2 !== 0 ? (n1 / n2).toFixed(2) : "Error (Div/0)";
+                    operacion = "División";
+                    break;
+                case 5:
+                    calculo = n1 % n2;
+                    operacion = "Módulo (%)";
+                    break;
+                default:
+                    break;
+            }
+
+            // Mostramos el resultado en el HTML
+            contenedor.innerHTML += `Iteración ${i} (${operacion}): ${calculo} <br>`;
+        }
+    }
+</script>
+
+</body>
+</html>
