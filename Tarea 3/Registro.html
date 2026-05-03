@@ -5,43 +5,62 @@
     <title>Formulario de Clientes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a; 
+            color: #e0e0e0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
         }
 
         .container {
-            background-color: white;
+            background-color: #1a1a1a; 
             padding: 30px;
-            border-radius: 5px;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #2ecc71; 
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2ecc71;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         input, textarea {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+            padding: 12px;
+            background-color: #252525;
+            border: 1px solid #444;
+            border-radius: 6px;
             font-size: 14px;
+            color: #fff;
             box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2ecc71;
+            background-color: #2a2a2a;
         }
 
         textarea {
@@ -51,66 +70,72 @@
 
         .button-group {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         button {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: none;
-            border-radius: 3px;
+            border-radius: 6px;
             font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
         .btn-submit {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #2ecc71;
+            color: #0a0a0a;
         }
 
         .btn-submit:hover {
-            background-color: #45a049;
+            background-color: #27ae60;
+            transform: translateY(-2px);
         }
 
         .btn-reset {
-            background-color: #999;
-            color: white;
+            background-color: transparent;
+            color: #999;
+            border: 1px solid #444;
         }
 
         .btn-reset:hover {
-            background-color: #777;
+            background-color: #333;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ingreso de Datos de Clientes</h1>
+        <h1>Registro de Clientes</h1>
         
         <form>
             <div class="form-group">
                 <label for="cedula">Cédula:</label>
-                <input type="text" id="cedula" name="cedula" placeholder="Ingrese cédula" required>
+                <input type="text" id="cedula" name="cedula" placeholder="Ej: 1712345678" pattern="[0-9]{10,13}" title="Ingrese solo números (10 a 13 dígitos)" required>
             </div>
 
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre" required>
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" minlength="3" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$" required>
             </div>
 
             <div class="form-group">
                 <label for="direccion">Dirección:</label>
-                <textarea id="direccion" name="direccion" placeholder="Ingrese dirección" required></textarea>
+                <textarea id="direccion" name="direccion" placeholder="Calle principal y secundaria" required></textarea>
             </div>
 
             <div class="form-group">
                 <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ingrese teléfono" required>
+                <input type="tel" id="telefono" name="telefono" placeholder="0975799791" pattern="[0-9]{7,10}" title="Ingrese un número telefónico válido" required>
             </div>
 
             <div class="form-group">
                 <label for="correo">Correo Electrónico:</label>
-                <input type="email" id="correo" name="correo" placeholder="Ingrese correo" required>
+                <input type="email" id="correo" name="correo" placeholder="usuario@dominio.com" required>
             </div>
 
             <div class="button-group">
