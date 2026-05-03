@@ -28,12 +28,9 @@
 
 <script>
     function procesarOperaciones() {
-        // Obtenemos los valores de los inputs
         let n1 = parseFloat(document.getElementById('num1').value);
         let n2 = parseFloat(document.getElementById('num2').value);
-        let contenedor = document.getElementById('resultado');
-        
-        // Limpiamos resultados previos
+        let contenedor = document.getElementById('resultado');        
         contenedor.innerHTML = "";
 
         if (isNaN(n1) || isNaN(n2)) {
@@ -41,12 +38,10 @@
             return;
         }
 
-        // 1. Usamos un bucle FOR para las 5 iteraciones
         for (let i = 1; i <= 5; i++) {
             let operacion = "";
             let calculo = 0;
 
-            // 2. Usamos SWITCH para determinar qué hacer en cada iteración
             switch (i) {
                 case 1:
                     calculo = n1 + n2;
@@ -61,7 +56,6 @@
                     operacion = "Multiplicación";
                     break;
                 case 4:
-                    // Validación simple para división por cero
                     calculo = n2 !== 0 ? (n1 / n2).toFixed(2) : "Error (Div/0)";
                     operacion = "División";
                     break;
@@ -73,7 +67,7 @@
                     break;
             }
 
-            // Mostramos el resultado en el HTML
+           
             contenedor.innerHTML += `Iteración ${i} (${operacion}): ${calculo} <br>`;
         }
     }
